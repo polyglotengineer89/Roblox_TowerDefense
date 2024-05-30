@@ -11,7 +11,7 @@ rojo build -o "TowerDefenseTycoon.rbxlx"
 Next, open `TowerDefenseTycoon.rbxlx` in Roblox Studio and start the Rojo server:
 
 ```bash
-432etgdx
+run rojo in roblox
 ```
 
 For more help, check out [the Rojo documentation](https://rojo.space/docs).
