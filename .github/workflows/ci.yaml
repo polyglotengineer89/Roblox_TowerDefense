@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      
+      - uses: Roblox/setup-foreman@v3
+        name: Instal foreman
+        with:
+            token: ${{ SECRETS.GITHUB_TOKEN }}
+            allow-external-github-orgs: true
+
+      - name: Lint
+        run: |
+          selene ./src
+
+  style:
+    name: Styling
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: JohnnyMorganz/stylua-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: latest
+          args:  --check .
+
+  test:
+    name: DebugToken
+    runs-on: ubuntu-latest
+    steps:
+    - name: DebugToken
+      run: |
+        echo "Token exists? ${{ secrets.GITHUB_TOKEN != '' }}"

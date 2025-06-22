@@ -1,0 +1,4 @@
+[tools]
+rojo = { github = "rojo-rbx/rojo", version = "7.2.1" }
+selene = {github="Kampfkarren/selene", version="0.28.0"}
+stylelua = {github="JohnnyMorganz/StyLua", version="2.1.0"}
